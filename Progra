@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programación 1 - UCB</title>
+  <style>
+    :root {
+      --ucb-blue: #002B49;
+      --ucb-gold: #FFC72C;
+      --ucb-blue-light: #004070;
+      --bg-gray: #f4f6f9;
+      --text-dark: #2b2b2b;
+      --white: #ffffff;
+      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-gray);
+      color: var(--text-dark);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--ucb-blue);
+      color: var(--white);
+      padding: 1rem 2rem;
+      border-bottom: 5px solid var(--ucb-gold);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-title span {
+      color: var(--ucb-gold);
+    }
+
+    /* Navigation */
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--ucb-gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--ucb-blue) 0%, var(--ucb-blue-light) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 3.5rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      color: var(--ucb-gold);
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      border-top: 5px solid var(--ucb-blue);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      border-top-color: var(--ucb-gold);
+    }
+
+    .card-header {
+      background-color: #fafafa;
+      padding: 1.2rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .unit-tag {
+      display: inline-block;
+      background-color: var(--ucb-gold);
+      color: var(--ucb-blue);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      color: var(--ucb-blue);
+    }
+
+    .card-body {
+      padding: 1.2rem;
+      flex: 1;
+    }
+
+    .card-body p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .topics-list {
+      list-style-type: none;
+    }
+
+    .topics-list li {
+      font-size: 0.9rem;
+      padding: 6px 0;
+      border-bottom: 1px border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .topics-list li::before {
+      content: "•";
+      color: var(--ucb-gold);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    code {
+      background-color: #f1f3f5;
+      color: #d63384;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--ucb-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 4px solid var(--ucb-gold);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-title">UCB <span>| Programación 1</span></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#enteros">Enteros</a></li>
+        <li><a href="#cadenas">Cadenas</a></li>
+        <li><a href="#listas">Listas</a></li>
+        <li><a href="#diccionarios">Diccionarios</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Programación 1</h1>
+    <p>Universidad Católica Boliviana</p>
+  </section>
+
+  <main class="container">
+    <div class="grid">
+      
+      <!-- Unidad 1 -->
+      <article class="card" id="enteros">
+        <div class="card-header">
+          <span class="unit-tag">Unidad 1</span>
+          <h2 class="card-title">Enteros</h2>
+        </div>
+        <div class="card-body">
+          <p>Manejo de tipos numéricos enteros, operaciones aritméticas básicas y representación lógica.</p>
+          <ul class="topics-list">
+            <li>Declaración y asignación de variables</li>
+            <li>Operadores (<code>+</code>, <code>-</code>, <code>*</code>, <code>//</code>, <code>%</code>)</li>
+            <li>Sistemas numéricos y conversiones</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Unidad 2 -->
+      <article class="card" id="cadenas">
+        <div class="card-header">
+          <span class="unit-tag">Unidad 2</span>
+          <h2 class="card-title">Cadenas</h2>
+        </div>
+        <div class="card-body">
+          <p>Manipulación y procesamiento de texto mediante el tipo de dato String.</p>
+          <ul class="topics-list">
+            <li>Indexación y slicing (subcadenas)</li>
+            <li>Concatenación y formateo</li>
+            <li>Métodos comunes (<code>split</code>, <code>lower</code>, <code>upper</code>)</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Unidad 3 -->
+      <article class="card" id="listas">
+        <div class="card-header">
+          <span class="unit-tag">Unidad 3</span>
+          <h2 class="card-title">Listas</h2>
+        </div>
+        <div class="card-body">
+          <p>Estructuras de datos secuenciales y mutables para almacenar colecciones de elementos.</p>
+          <ul class="topics-list">
+            <li>Creación y acceso a elementos</li>
+            <li>Operaciones principales (<code>append</code>, <code>pop</code>, <code>remove</code>)</li>
+            <li>Recorrido con bucles</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Unidad 4 -->
+      <article class="card" id="diccionarios">
+        <div class="card-header">
+          <span class="unit-tag">Unidad 4</span>
+          <h2 class="card-title">Diccionarios (Matrices)</h2>
+        </div>
+        <div class="card-body">
+          <p>Estructuras de datos clave-valor y representación de arreglos multidimensionales.</p>
+          <ul class="topics-list">
+            <li>Creación y mapeo clave-valor</li>
+            <li>Listas anidadas como matrices</li>
+            <li>Algoritmos de recorrido de matrices</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Universidad Católica Boliviana "San Pablo" — Departamento de Ingenierías y Ciencias Exactas</p>
+  </footer>
+
+</body>
+</html>
